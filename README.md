@@ -3,7 +3,7 @@ Database files for Emulators, formatted for use with [Attract-Mode](http://attra
 
 ## Data sourced from:
 
-### [TheGamesDB.Net](https://thegamesdb.net/)
+### [TheGamesDB](https://thegamesdb.net/)
 #### [Moby Games](https://www.mobygames.com/)  
 #### [IGDB](https://igdb.com/)
 #### [HyperSpin](http://hyperlist.hyperspin-fe.com/) & [HyperList](https://hyperspin-fe.com/)  
