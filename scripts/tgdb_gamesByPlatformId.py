@@ -17,13 +17,13 @@ boxart = False
 # Platform requested
 if len(sys.argv) == 1:
 	print(f"You need to specify the Name or Alias of a Platform to retrieve. Ex: \"Sony Playstation\"")
-	sys.exit(1)
+	sys.exit(1)	
 else:
 	platform = sys.argv[1]
 	print(f"Platform: {platform}")
 
 
-# Check if we already have Platforms, Developers, Genres, and Publishers downloaded.
+# Check if we already have Platforms, Developers, Genres, and Publishers downloaded. 
 # If not, pull them down and save them for later use. (Lets not hammer the API for no reason)
 dependency_path = "./"
 dependencies = ['Platforms', 'Developers', 'Genres', 'Publishers']
@@ -57,7 +57,7 @@ for k, p in dependency_data['Platforms'].items():
 		platform = p['name']
 
 # Check that we found the requested platform
-try:
+try: 
 	platform_id
 except NameError as e:
 	print(f"Could not find an ID for Platform: {platform}. Please check you have the correct name or alias")
@@ -142,11 +142,12 @@ for game in games_list:
 	i += 1
 	expanded_game = {} # Holding Dict for expanding current game
 	expanded_game['platform_name'] = dependency_data['Platforms'][str(game['platform'])]['name'] # Add Platform Name into Dict
+	print(f"Expanding Developers, Genres, and Publishers for {game['game_title']} ({i} of {len(games_list)})", end='\r')
 	for dependency in ['developers', 'genres', 'publishers']: # Check each of the three dependencies
 		if game[dependency] is not None: # Check that it has values
 			expanded_game[dependency] = [] # Create an entry on the current game for this dependency
 			dependency_list = [] # Create a holding list for all the lookups
-			for _id in game.pop(dependency, None): # pop off the dependency in the current itteration and loop each id
+			for _id in game.pop(dependency, None): # pop off the dependency in the current itteration and loop each id 
 				dependency_list.append(dependency_data[dependency.capitalize()][str(_id)]['name']) # Lookup in the dependency data the name for this id
 			expanded_game[dependency].extend(dependency_list) # add all the entries to the current game under the right dependency
 		else:
